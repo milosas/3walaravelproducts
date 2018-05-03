@@ -22,4 +22,7 @@ class ProductController extends Controller
       $product = Product::find($id);
       return view('products.singleproduct', compact('product'));
     }
+    public function addproduct(){
+      return view('products.create');
+    }
 }

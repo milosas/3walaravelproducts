@@ -41,3 +41,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/allcategories', 'CategoryController@index')->name('categories.page');
 
 Route::get('/allcompanies', 'CompanyController@index')->name('companies.page');
+
+Route::get('/addproduct', 'ProductController@addproduct')->name('product.create');
