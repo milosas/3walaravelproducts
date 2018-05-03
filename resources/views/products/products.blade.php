@@ -2,7 +2,11 @@
 
 
 @section('content')
-
+@if (session('ZINUTE'))
+  <div class="alert alert-success">
+    {{session('ZINUTE')}}
+  </div>
+@endif
   <br>
   <br><br><br>
 <div class="col-md-12 text-center">
