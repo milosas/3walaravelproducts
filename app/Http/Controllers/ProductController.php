@@ -29,5 +29,20 @@ class ProductController extends Controller
       $categories = Category::all();
       return view('products.create', compact('companies', 'categories'));
     }
+    public function store(Request $request){
+
+      // Product::create($request->all()); tas pats kas apacioje, bet visi laukai turi buti tokie patys
+      
+      Product::create([
+        'name' => $request->input('name'),
+        'description' => $request->input('description'),
+        'photo' => $request->input('photo'),
+        'price' => $request->input('price'),
+        'quantity' => $request->input('quantity'),
+        'category_id' => $request->input('category_id'),
+        'company_id' => $request->input('company_id')
+      ]);
+      return redirect()->route('products.page');
+    }
 
 }

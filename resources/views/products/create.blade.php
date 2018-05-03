@@ -2,15 +2,16 @@
 
 @section('content')
 <br>
-<form class=""  action="{{route('store.page')}}" method="post">
+<form class=""  action="{{route('products.store')}}" method="post">
+  @csrf
   <label class="btn btn-primary" for="">New Product</label>
-  <input class="form-control form-control-lg" type="text" placeholder="Name">
+  <input name="name" class="form-control form-control-lg" type="text" placeholder="Name">
   <br>
-  <input class="form-control form-control-lg" type="text" placeholder="Description">
+  <input name="description" class="form-control form-control-lg" type="text" placeholder="Description">
 <br>
-  <input class="form-control form-control-lg" type="text" placeholder="Photo">
-  <br><input class="form-control form-control-lg" type="text" placeholder="Price">
-  <br><input class="form-control form-control-lg" type="text" placeholder="Quantity">
+  <input name="photo" class="form-control form-control-lg" type="text" placeholder="Photo">
+  <br><input name="price" class="form-control form-control-lg" type="text" placeholder="Price">
+  <br><input name="quantity" class="form-control form-control-lg" type="text" placeholder="Quantity">
 <br>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Category</label>
@@ -30,7 +31,7 @@
 
     </select>
   </div>
-  <br><button type="submit" class="btn btn-primary">Create</button>
+  <br><button type="submit" name="submit" class="btn btn-primary">Create</button>
   <br>
 </form>
 

@@ -44,4 +44,4 @@ Route::get('/allcompanies', 'CompanyController@index')->name('companies.page');
 
 Route::get('/addproduct', 'ProductController@addproduct')->name('products.create');
 
-Route::post('/store','ProductController@store')->name('store.page');
+Route::post('/VISIproduktai','ProductController@store')->name('products.store');
