@@ -46,5 +46,7 @@ Route::get('/allcompanies', 'CompanyController@index')->name('companies.page');
 Route::get('/addproduct', 'ProductController@addproduct')->name('products.create');
 
 Route::post('/VISIproduktai','ProductController@store')->name('products.store');
+Route::put('/VISIproduktai/{product}/update','ProductController@update')->name('products.update');
 
 Route::delete('/VISIproduktai/{product}','ProductController@delete')->name('product.delete');
+Route::get('/VISIproduktai/{product}/edit','ProductController@edit')->name('product.edit');

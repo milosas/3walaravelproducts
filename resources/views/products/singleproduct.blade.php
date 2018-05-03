@@ -15,6 +15,11 @@
             <div class="card-footer">
               <a href="#" class="btn btn-primary">{{str_limit($product->price, 10)}}</a>
             </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">CATEGORY ID:{{str_limit($product->category_id, 10)}}</a>
+            </div>
+            <a href="#" class="btn btn-primary">COMPANY ID:{{str_limit($product->company_id, 10)}}</a>
+
           </div>
         </div>
     </div>
@@ -22,9 +27,10 @@
       @method('DELETE')
       @csrf
       <button type="submit" class="btn btn-danger" name="button">Trinti</button>
-      @method('PUT')
-      @csrf
-      <button type="submit" class="btn btn-warning" name="button">Redaguoti</button>
 </form>
+
+  <a class="btn btn-warning" href="{{route('product.edit', $product)}}">UPDATE</a>
+
+
 
 @endsection

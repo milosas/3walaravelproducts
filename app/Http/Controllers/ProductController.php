@@ -58,6 +58,25 @@ class ProductController extends Controller
       return redirect()->route('products.page')->with('ZINUTE', 'PRODUKTAS ISSAUGOTAS');
     }
     public function delete(Product $product){
-
+      Product::findOrFail($product->id)->delete();
+      return redirect()->route('products.page')->with('ZINUTE','Sekmingai istrinta');
     }
+    public function edit(Product $product){
+      $companies = Company::all();
+      $categories = Company::all();
+      return view('products.edit', compact ('product', 'companies', 'categories'))->with('ZINUTE','Sekmingas update!');
+    }
+
+public function update(StoreProductRequest $request,Product $product){
+  $product->update([
+    'name' => $request->input('name'),
+    'description' => $request->input('description'),
+    'photo' => $request->input('photo'),
+    'price' => $request->input('price'),
+    'quantity' => $request->input('quantity'),
+    'category_id' => $request->input('category_id'),
+    'company_id' => $request->input('company_id')
+  ]);
+  return redirect()->route('products.store')->with('ZINUTE','Sekmingas update!');
+}
 }
