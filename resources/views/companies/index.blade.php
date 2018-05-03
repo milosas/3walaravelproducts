@@ -14,6 +14,9 @@
     <td>{{$categor->country}}</td>
 
     </tr>
+    <tr>
+      
+    </tr>
 
 @endforeach
   </table>
