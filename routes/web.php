@@ -31,7 +31,7 @@ Auth::routes();
 Route::get('/','ProductController@main')->name('main.page');
 
 Route::get('/VISIproduktai','ProductController@allproducts')->name('products.page');
-Route::get('/VISIproduktai/{id}', 'ProductController@show')->name('singleproduct.page');
+Route::get('/VISIproduktai/{product}', 'ProductController@show')->name('singleproduct.page');
 
 Route::get('/oneproduct','ProductController@oneproduct')->name('oneproduct.page');
 
@@ -42,4 +42,6 @@ Route::get('/allcategories', 'CategoryController@index')->name('categories.page'
 
 Route::get('/allcompanies', 'CompanyController@index')->name('companies.page');
 
-Route::get('/addproduct', 'ProductController@addproduct')->name('product.create');
+Route::get('/addproduct', 'ProductController@addproduct')->name('products.create');
+
+Route::post('/store','ProductController@store')->name('store.page');

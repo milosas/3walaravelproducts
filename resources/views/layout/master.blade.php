@@ -20,10 +20,10 @@
 
 
   </head>
-
+<br><br>
 @include('layout.nav')
 
- 
+
   @yield('content')  {{-- body --}}
 @include('layout.footer')
 </body>
