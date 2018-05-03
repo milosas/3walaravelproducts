@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Company;
 use App\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreProductRequest;
+
 
 class ProductController extends Controller
 {
@@ -29,10 +30,21 @@ class ProductController extends Controller
       $categories = Category::all();
       return view('products.create', compact('companies', 'categories'));
     }
-    public function store(Request $request){
+    public function store(StoreProductRequest $request){
 
       // Product::create($request->all()); tas pats kas apacioje, bet visi laukai turi buti tokie patys
-      
+      // $this->validate($require, [    // validacija, kad praeitu iki submit
+      //   'name' => 'required'
+      // ]);
+
+      // $request->validate([
+      //   'name' => 'required',
+      //   'description' => 'required',
+      //   'photo' => 'required',
+      //   'price' => 'required',
+      //   'quantity' => 'required'
+      //
+      // ]);
       Product::create([
         'name' => $request->input('name'),
         'description' => $request->input('description'),

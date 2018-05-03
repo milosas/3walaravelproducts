@@ -1,10 +1,19 @@
 @extends('layout.master')
 
 @section('content')
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <br>
 <form class=""  action="{{route('products.store')}}" method="post">
   @csrf
-  <label class="btn btn-primary" for="">New Product</label>
+  <a href="{{route('products.page')}}">Atgal</a>
   <input name="name" class="form-control form-control-lg" type="text" placeholder="Name">
   <br>
   <input name="description" class="form-control form-control-lg" type="text" placeholder="Description">

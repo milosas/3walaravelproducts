@@ -26,6 +26,7 @@
 // })->name('kontaktai');
 //
 // Route::resource('product', 'ProductController');
+
 Auth::routes();
 
 Route::get('/','ProductController@main')->name('main.page');
