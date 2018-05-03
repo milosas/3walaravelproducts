@@ -11,10 +11,8 @@
 
   <br>
   <br><br><br>
-<div class="col-md-12 text-center">
 
-<a class="button" href="{{route('products.create')}}">Create new product</a>
-</div>
+
 
   <div class="row">
   @foreach ($products as $product)

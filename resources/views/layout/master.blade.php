@@ -22,7 +22,14 @@
   </head>
 <br><br>
 @include('layout.nav')
+<br>
+<br>
+@auth
+<div class="col-md-12 text-center">
 
+<a class="button" href="{{route('products.create')}}">Create new product</a>
+</div>
+@endauth
 
   @yield('content')  {{-- body --}}
 @include('layout.footer')

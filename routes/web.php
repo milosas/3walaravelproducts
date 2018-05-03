@@ -39,11 +39,11 @@ Route::get('/oneproduct','ProductController@oneproduct')->name('oneproduct.page'
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/allcategories', 'CategoryController@index')->name('categories.page');
+Route::get('/allcategories', 'CategoryController@index')->name('categories.page')->middleware('auth');
 
-Route::get('/allcompanies', 'CompanyController@index')->name('companies.page');
+Route::get('/allcompanies', 'CompanyController@index')->name('companies.page')->middleware('auth');
 
-Route::get('/addproduct', 'ProductController@addproduct')->name('products.create');
+Route::get('/addproduct', 'ProductController@addproduct')->name('products.create')->middleware('auth');
 
 Route::post('/VISIproduktai','ProductController@store')->name('products.store');
 Route::put('/VISIproduktai/{product}/update','ProductController@update')->name('products.update');
