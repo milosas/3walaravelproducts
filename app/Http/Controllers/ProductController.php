@@ -54,7 +54,10 @@ class ProductController extends Controller
         'category_id' => $request->input('category_id'),
         'company_id' => $request->input('company_id')
       ]);
+
       return redirect()->route('products.page')->with('ZINUTE', 'PRODUKTAS ISSAUGOTAS');
     }
+    public function delete(Product $product){
 
+    }
 }

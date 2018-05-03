@@ -18,6 +18,13 @@
           </div>
         </div>
     </div>
-
+    <form class=""  action="{{route('product.delete', $product)}}" method="POST">
+      @method('DELETE')
+      @csrf
+      <button type="submit" class="btn btn-danger" name="button">Trinti</button>
+      @method('PUT')
+      @csrf
+      <button type="submit" class="btn btn-warning" name="button">Redaguoti</button>
+</form>
 
 @endsection
