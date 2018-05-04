@@ -43,6 +43,9 @@ Route::get('/allcategories', 'CategoryController@index')->name('categories.page'
 
 Route::get('/allcompanies', 'CompanyController@index')->name('companies.page')->middleware('admin');
 
+Route::get('/allcompanies/{company}', 'CompanyController@show')->name('companies.company')->middleware('admin');
+
+
 Route::get('/addproduct', 'ProductController@addproduct')->name('products.create')->middleware('admin');
 
 Route::post('/VISIproduktai','ProductController@store')->name('products.store')->middleware('admin');
@@ -50,3 +53,9 @@ Route::put('/VISIproduktai/{product}/update','ProductController@update')->name('
 
 Route::delete('/VISIproduktai/{product}','ProductController@delete')->name('product.delete')->middleware('admin');
 Route::get('/VISIproduktai/{product}/edit','ProductController@edit')->name('product.edit')->middleware('admin');
+Route::get('/daug', function (){
+  $company = App\Company::find(6);
+  foreach ($company->products as $product) {
+    echo '<li>'.$product->name.'</li>';
+  }
+});
