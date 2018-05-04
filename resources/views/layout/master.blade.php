@@ -31,7 +31,7 @@
 </div>
 @endauth
 
-  @yield('content')  {{-- body --}}
+  @yield('content')  {{-- body AS--}}
 @include('layout.footer')
 </body>
 
