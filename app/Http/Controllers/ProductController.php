@@ -26,6 +26,9 @@ class ProductController extends Controller
       return view('products.singleproduct', compact('product'));
     }
     public function addproduct(){
+
+      $this->authorize('create',Product::class);
+
       $companies = Company::all();
       $categories = Category::all();
       return view('products.create', compact('companies', 'categories'));
@@ -45,6 +48,8 @@ class ProductController extends Controller
       //   'quantity' => 'required'
       //
       // ]);
+      $this->authorize('create',Product::class);
+
       Product::create([
         'name' => $request->input('name'),
         'description' => $request->input('description'),
@@ -58,16 +63,26 @@ class ProductController extends Controller
       return redirect()->route('products.page')->with('ZINUTE', 'PRODUKTAS ISSAUGOTAS');
     }
     public function delete(Product $product){
+
+      $this->authorize('delete',Product::class);
+
       Product::findOrFail($product->id)->delete();
       return redirect()->route('products.page')->with('ZINUTE','Sekmingai istrinta');
     }
+
     public function edit(Product $product){
+      $this->authorize('update',Product::class);
+
       $companies = Company::all();
       $categories = Company::all();
       return view('products.edit', compact ('product', 'companies', 'categories'))->with('ZINUTE','Sekmingas update!');
     }
 
 public function update(StoreProductRequest $request,Product $product){
+
+  $this->authorize('update',Product::class);
+
+
   $product->update([
     'name' => $request->input('name'),
     'description' => $request->input('description'),

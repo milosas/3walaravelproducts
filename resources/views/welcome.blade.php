@@ -7,7 +7,9 @@
 
 
 
-
+@if(session('ZINUTE'))
+{{session('ZINUTE')}}
+@endif
   <div class="row">
   @foreach ($products as $product)
         <div class="col-sm-4 my-4">

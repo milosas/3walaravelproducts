@@ -39,14 +39,14 @@ Route::get('/oneproduct','ProductController@oneproduct')->name('oneproduct.page'
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/allcategories', 'CategoryController@index')->name('categories.page')->middleware('auth');
+Route::get('/allcategories', 'CategoryController@index')->name('categories.page');
 
-Route::get('/allcompanies', 'CompanyController@index')->name('companies.page')->middleware('auth');
+Route::get('/allcompanies', 'CompanyController@index')->name('companies.page')->middleware('admin');
 
-Route::get('/addproduct', 'ProductController@addproduct')->name('products.create')->middleware('auth');
+Route::get('/addproduct', 'ProductController@addproduct')->name('products.create')->middleware('admin');
 
-Route::post('/VISIproduktai','ProductController@store')->name('products.store');
-Route::put('/VISIproduktai/{product}/update','ProductController@update')->name('products.update');
+Route::post('/VISIproduktai','ProductController@store')->name('products.store')->middleware('admin');
+Route::put('/VISIproduktai/{product}/update','ProductController@update')->name('products.update')->middleware('admin');
 
-Route::delete('/VISIproduktai/{product}','ProductController@delete')->name('product.delete');
-Route::get('/VISIproduktai/{product}/edit','ProductController@edit')->name('product.edit');
+Route::delete('/VISIproduktai/{product}','ProductController@delete')->name('product.delete')->middleware('admin');
+Route::get('/VISIproduktai/{product}/edit','ProductController@edit')->name('product.edit')->middleware('admin');
